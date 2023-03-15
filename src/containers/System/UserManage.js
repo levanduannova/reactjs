@@ -2,8 +2,14 @@ import React, { Component } from "react";
 import { FormattedMessage } from "react-intl";
 import { connect } from "react-redux";
 import "./UserManage.scss";
-import { getAllUsers ,createNewUserService } from "../../services/userService";
+import {
+  getAllUsers,
+  createNewUserService,
+  deleteUserService,
+} from "../../services/userService";
 import ModalUser from "./ModalUser";
+
+import { emitter } from "../../utils/emiiter";
 class UserManage extends Component {
   constructor(props) {
     super(props); // Ham tao
@@ -16,8 +22,7 @@ class UserManage extends Component {
   state = {};
 
   async componentDidMount() {
-    await this.getAllUsersFrom()
-    
+    await this.getAllUsersFrom();
   }
   handleAddNewuser = () => {
     this.setState({
@@ -30,7 +35,7 @@ class UserManage extends Component {
     });
   };
 
-   getAllUsersFrom =async () => {
+  getAllUsersFrom = async () => {
     let response = await getAllUsers("");
     if (response && response.errCode === 0) {
       this.setState({
@@ -40,22 +45,36 @@ class UserManage extends Component {
   };
   createNewUsers = async (data) => {
     try {
-      let response = await createNewUserService(data)
+      let response = await createNewUserService(data);
 
-      if(response && response.errCode !==0){
-        alert(response.message)
-      }
-      else{
-        await this.getAllUsersFrom()
+      if (response && response.errCode !== 0) {
+        alert(response.message);
+      } else {
+        await this.getAllUsersFrom();
         this.setState({
           isOpenModal: false,
         });
+        emitter.emit("EVENT_CLEAR_MODAL",{'id': '123'})
       }
     } catch (error) {
       console.log(error);
     }
-    
+
     console.log(data);
+  };
+
+  handleDeleteUser = async (item) => {
+    console.log("Click delete");
+    try {
+      let response = await deleteUserService(item.id);
+      if (response && response.errCode !== 0) {
+        alert(response.message);
+      } else {
+        await this.getAllUsersFrom();
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   render() {
@@ -92,7 +111,7 @@ class UserManage extends Component {
               {arrayUsers &&
                 arrayUsers.map((item, index) => {
                   return (
-                    <tr>
+                    <tr key={index}>
                       <td>{item.email}</td>
                       <td>{item.firstName}</td>
                       <td>{item.lastName}</td>
@@ -108,6 +127,7 @@ class UserManage extends Component {
                         <button
                           type="button"
                           className="btn btn-outline-danger"
+                          onClick={() => this.handleDeleteUser(item)}
                         >
                           Xóa
                         </button>

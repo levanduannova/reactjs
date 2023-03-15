@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { FormattedMessage } from "react-intl";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import { connect } from "react-redux";
+import { emitter } from "../../utils/emiiter";
 class ModalUser extends Component {
   constructor(props) {
     super(props);
@@ -15,9 +16,25 @@ class ModalUser extends Component {
       gender: "",
       roleId: "",
     };
+    this.listenEmitter();
   }
-
-  componentDidMount() {}
+  listenEmitter() {
+    emitter.on("EVENT_CLEAR_MODAL", () => {
+      this.setState({
+        email: "",
+        password: "",
+        firstName: "",
+        lastName: "",
+        address: "",
+        phoneNumber: "",
+        gender: "",
+        roleId: "",
+      });
+    });
+  }
+  componentDidMount() {
+    console.log("HIAHDIA");
+  }
   toggle = () => {
     this.props.toggleUFromParent();
   };
@@ -55,7 +72,7 @@ class ModalUser extends Component {
     if (this.checkValidateInput()) {
       //Call api
       this.props.createNewUser(this.state);
-    //   console.log("data modal ", this.state);
+      //   console.log("data modal ", this.state);
     }
   };
   render() {
