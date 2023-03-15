@@ -29,9 +29,11 @@
 
       .login-input {
         margin: 7px;
-        .custom-input-password{
+
+        .custom-input-password {
           position: relative;
-          i{
+
+          i {
             position: absolute;
             right: 5px;
             top: 10px;
@@ -89,6 +91,7 @@
           color: white;
 
         }
+
         .github {
           background: rgb(215, 220, 223);
           font-size: 25px;
