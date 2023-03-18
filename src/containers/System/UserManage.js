@@ -6,9 +6,10 @@ import {
   getAllUsers,
   createNewUserService,
   deleteUserService,
+  edituserService,
 } from "../../services/userService";
 import ModalUser from "./ModalUser";
-
+import ModalEditUser from "./ModalEditUser";
 import { emitter } from "../../utils/emiiter";
 class UserManage extends Component {
   constructor(props) {
@@ -17,6 +18,8 @@ class UserManage extends Component {
       arrayUsers: [],
 
       isOpenModal: false,
+      isOpenEditUser: false,
+      userEdit: {},
     };
   }
   state = {};
@@ -29,9 +32,16 @@ class UserManage extends Component {
       isOpenModal: true,
     });
   };
+
   toggleUserMoDal = () => {
     this.setState({
       isOpenModal: !this.state.isOpenModal,
+    });
+  };
+
+  toggleUserEditMoDal = () => {
+    this.setState({
+      isOpenEditUser: !this.state.isOpenEditUser,
     });
   };
 
@@ -54,23 +64,44 @@ class UserManage extends Component {
         this.setState({
           isOpenModal: false,
         });
-        emitter.emit("EVENT_CLEAR_MODAL",{'id': '123'})
+        emitter.emit("EVENT_CLEAR_MODAL", { id: "123" });
       }
     } catch (error) {
       console.log(error);
     }
-
-    console.log(data);
   };
 
   handleDeleteUser = async (item) => {
-    console.log("Click delete");
     try {
       let response = await deleteUserService(item.id);
       if (response && response.errCode !== 0) {
         alert(response.message);
       } else {
         await this.getAllUsersFrom();
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  handleEditUser = async (item) => {
+    this.setState({
+      isOpenEditUser: true,
+      userEdit: item,
+    });
+  };
+
+  saveEditUser = async (data) => {
+    try {
+      let response = await edituserService(data);
+
+      if (response && response.errCode !== 0) {
+        alert(response.message);
+      } else {
+        await this.getAllUsersFrom();
+        this.setState({
+          isOpenEditUser: false,
+        });
       }
     } catch (error) {
       console.log(error);
@@ -86,6 +117,16 @@ class UserManage extends Component {
           toggleUFromParent={this.toggleUserMoDal}
           createNewUser={this.createNewUsers}
         />
+        {this.state.isOpenEditUser && (
+          <ModalEditUser
+            isOpen={this.state.isOpenEditUser}
+            toggleUFromParent={this.toggleUserEditMoDal}
+            currentUser={this.state.userEdit}
+            saveUser={this.saveEditUser}
+            // createNewUser={this.createNewUsers}
+          />
+        )}
+
         <div className="title text-center">Manage user</div>
         <div className="mx-1">
           <button
@@ -121,6 +162,7 @@ class UserManage extends Component {
                         <button
                           type="button"
                           className="btn btn-outline-success"
+                          onClick={() => this.handleEditUser(item)}
                         >
                           Sửa
                         </button>
