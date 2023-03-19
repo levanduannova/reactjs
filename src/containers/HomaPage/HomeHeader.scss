@@ -1,6 +1,5 @@
 .home-header-container {
-    height: 60px;
-    border: 1px solid red;
+    height: 75px;
     width: 100%;
     padding: 0 20px;
 
@@ -14,12 +13,14 @@
             display: flex;
             width: 25%;
             align-items: center;
+            
 
             .header-logo {
                 background: url(../../assets/images/logo.png) center center no-repeat;
                 height: 100%;
                 width: 100%;
                 cursor: pointer;
+                background-size: 70%;
             }
 
             i {
@@ -30,8 +31,10 @@
         }
 
         .center-content {
+            margin-top: 10px;
             width: 50%;
             display: flex;
+            align-items: center;
             justify-content: space-between;
 
             .child-content {
@@ -50,10 +53,139 @@
             width: 25%;
             align-items: center;
             display: flex;
-            justify-content: center;
+            justify-content: flex-end;
+
             .support {
-                
+                display: flex;
+                align-items: center;
+                padding-right: 40px;
+                cursor: pointer;
+                i{
+                    margin-right: 3px;
+                }
+            }
+            .language-vn{
+                cursor: pointer;
+                &.active{
+                    color: #ffc107;
+                //.language-vn active
+                }
+            }
+            .language-eng{
+                margin: 0 10px;
+                cursor: pointer;
+                &.active{
+                    color: #6aff07;
+
+                }
             }
         }
     }
+}
+
+.home-header-banner {
+    background: url(../../assets/images/bookingcare.jpg);
+    height: 700px;
+    display: flex;
+    flex-direction: column;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    .content-up {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(255, 255, 255, 0.1));
+        padding-top: 45px;
+        height: 65%;
+
+        .title-1 {
+
+            text-align: center;
+            color: #fff;
+            font-size: 32px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            text-shadow: 1px 1px 1px #333;
+        }
+
+        .title-2 {
+            text-align: center;
+            color: #fff;
+            font-size: 32px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            text-shadow: 1px 1px 1px #333;
+        }
+
+        .search-banner {
+            width: fit-content;
+            text-align: center;
+            justify-content: center;
+            margin: 0 auto;
+            padding: 10px;
+            background: #ffc107;
+            border-radius: 30px;
+            align-items: center;
+
+            i {
+                margin: 0 5px;
+            }
+
+            input {
+                outline: none;
+                border: none;
+                background: transparent;
+                height: 30px;
+                width: 350px;
+            }
+
+        }
+    }
+
+    .content-down {
+        height: 35%;
+        display: flex;
+        align-items: flex-end;
+        gap: 10px;
+        justify-content: center;
+        background-image: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 1));
+
+        .options-banner {
+            display: flex;
+            text-align: center;
+            justify-content: center;
+
+            .option-child {
+                width: 100px;
+                cursor: pointer;
+
+
+                .icon-child {
+                    background-color: rgb(253, 253, 253);
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 20px;
+                    padding: 10px;
+                    text-align: center;
+                    margin: 0 auto;
+
+                    i {
+                        color: rgb(14, 129, 129);
+                        font-size: 22px;
+                    }
+                }
+
+                .text-child {
+                    font-size: 15px;
+                    font-weight: 500;
+
+                    &:hover {
+                        color: rgb(23, 128, 128);
+                    }
+                }
+            }
+        }
+    }
+
+
+
 }
