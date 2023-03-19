@@ -3,8 +3,17 @@ import { connect } from "react-redux";
 import { FormattedMessage } from "react-intl";
 import * as actions from "../../store/actions";
 import "./HomeHeader.scss";
+import { LANGUAGES } from "../../utils/constant";
+
+import { appChangeLanguage } from "../../store/actions";
+
 class HomeHeader extends Component {
+  changeLangguage = (language) => {
+    this.props.appChangeLanguage(language);
+    //fire redux event
+  };
   render() {
+    let language = this.props.language;
     return (
       <React.Fragment>
         <div className="home-header-container">
@@ -60,8 +69,28 @@ class HomeHeader extends Component {
                 <i className="far fa-question-circle"></i>
                 <FormattedMessage id="home-header.support" />
               </div>
-              <div className="language-vn">VN</div>
-              <div className="language-eng">ENG</div>
+              <div
+                className={
+                  language === LANGUAGES.VI
+                    ? "language-vi active"
+                    : "language-vi"
+                }
+              >
+                <span onClick={(event) => this.changeLangguage(LANGUAGES.VI)}>
+                  VI
+                </span>
+              </div>
+              <div
+                className={
+                  language === LANGUAGES.EN
+                    ? "language-eng active"
+                    : "language-eng"
+                }
+              >
+                <span onClick={(event) => this.changeLangguage(LANGUAGES.EN)}>
+                  ENG
+                </span>
+              </div>
             </div>
           </div>
         </div>
@@ -84,55 +113,73 @@ class HomeHeader extends Component {
                 <div className="icon-child">
                   <i className="fas fa-hospital"></i>
                 </div>
-                <div className="text-child">Khám chuyên khoa</div>
+                <div className="text-child">
+                  <FormattedMessage id="home-header.specialized_examination" />
+                </div>
               </div>
               <div className="option-child">
                 <div className="icon-child">
                   <i className="fas fa-mobile-alt"></i>
                 </div>
-                <div className="text-child">Khám từ xa</div>
+                <div className="text-child">
+                  <FormattedMessage id="home-header.remote_examination" />
+                </div>
               </div>
               <div className="option-child">
                 <div className="icon-child">
                   <i className="fas fa-hospital-alt"></i>
                 </div>
-                <div className="text-child">Khám tổng quát</div>
+                <div className="text-child">
+                  <FormattedMessage id="home-header.general_examination" />
+                </div>
               </div>
               <div className="option-child">
                 <div className="icon-child">
                   <i className="fab fa-joomla"></i>
                 </div>
-                <div className="text-child">Xét nghiệm y học</div>
+                <div className="text-child">
+                  <FormattedMessage id="home-header.medical_test" />
+                </div>
               </div>
               <div className="option-child">
                 <div className="icon-child">
                   <i className="fas fa-wheelchair"></i>
                 </div>
-                <div className="text-child">Sức khỏe tinh thần</div>
+                <div className="text-child">
+                  <FormattedMessage id="home-header.mental_health" />
+                </div>
               </div>
               <div className="option-child">
                 <div className="icon-child">
                   <i className="fas fa-user-ninja"></i>
                 </div>
-                <div className="text-child">Khám nha khoa</div>
+                <div className="text-child">
+                  <FormattedMessage id="home-header.dental_examination" />
+                </div>
               </div>
               <div className="option-child">
                 <div className="icon-child">
                   <i className="fas fa-user-astronaut"></i>
                 </div>
-                <div className="text-child">Gói phẫu thuật</div>
+                <div className="text-child">
+                  <FormattedMessage id="home-header.surgery_pack" />
+                </div>
               </div>
               <div className="option-child">
                 <div className="icon-child">
                   <i className="fas fa-transgender-alt"></i>
                 </div>
-                <div className="text-child">Sản phẩm y tế</div>
+                <div className="text-child">
+                  <FormattedMessage id="home-header.medical_products" />
+                </div>
               </div>
               <div className="option-child">
                 <div className="icon-child">
                   <i className="fas fa-walking"></i>
                 </div>
-                <div className="text-child">Sức khỏe Doanh nghiệp</div>
+                <div className="text-child">
+                  <FormattedMessage id="home-header.business_health" />
+                </div>
               </div>
             </div>
           </div>
@@ -150,7 +197,9 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => {
-  return {};
+  return {
+    appChangeLanguage: (language) => dispatch(appChangeLanguage(language)),
+  };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomeHeader);

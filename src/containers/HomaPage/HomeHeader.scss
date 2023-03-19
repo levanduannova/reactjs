@@ -13,7 +13,7 @@
             display: flex;
             width: 25%;
             align-items: center;
-            
+
 
             .header-logo {
                 background: url(../../assets/images/logo.png) center center no-repeat;
@@ -36,6 +36,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+            cursor: pointer;
 
             .child-content {
                 p {
@@ -60,23 +61,39 @@
                 align-items: center;
                 padding-right: 40px;
                 cursor: pointer;
-                i{
+
+                i {
                     margin-right: 3px;
                 }
             }
-            .language-vn{
+
+            .language-vi {
                 cursor: pointer;
-                &.active{
+                opacity: 0.2;
+
+                &.active {
+                    opacity: 1;
                     color: #ffc107;
-                //.language-vn active
+                    //.language-vn active
+                }
+
+                &:hover {
+                    opacity: 1;
                 }
             }
-            .language-eng{
+
+            .language-eng {
                 margin: 0 10px;
                 cursor: pointer;
-                &.active{
-                    color: #6aff07;
+                opacity: 0.2;
 
+                &.active {
+                    opacity: 1;
+                    color: #0734ff;
+                }
+
+                &:hover {
+                    opacity: 1;
                 }
             }
         }

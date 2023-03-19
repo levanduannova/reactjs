@@ -7,11 +7,19 @@
     "physician": "Physician",
     "choose_a_good_doctor": "Choose a good doctor",
     "examination_package": "Examination Package",
-    "general_health_check":"General health check",
-    "support":"Support",
-    "MEDICAL_BACKGROUND":"MEDICAL BACKGROUND",
-    "COMPREHENSIVE_HEALTH_CARE":"COMPREHENSIVE HEALTH CARE"
-
+    "general_health_check": "General health check",
+    "support": "Support",
+    "MEDICAL_BACKGROUND": "MEDICAL BACKGROUND",
+    "COMPREHENSIVE_HEALTH_CARE": "COMPREHENSIVE HEALTH CARE",
+    "specialized_examination": "Specialized examination",
+    "remote_examination": "Remote Examination",
+    "general_examination":"General examination",
+    "medical_test": "Medical test",
+    "mental_health": "Mental health",
+    "dental_examination":"Dental examination",
+    "surgery_pack":"Surgery pack",
+    "medical_products":"Medical products",
+    "business_health":"Business Health"
   },
   "common": {
     "add": "Add",

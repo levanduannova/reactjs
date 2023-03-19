@@ -10,7 +10,16 @@
     "general_health_check":"Khám sức khỏe tổng quát",
     "support": "Hỗ trợ",
     "MEDICAL_BACKGROUND":"NỀN TẢNG Y TẾ",
-    "COMPREHENSIVE_HEALTH_CARE":"CHĂM SÓC SỨC KHOẺ TOÀN DIỆN"
+    "COMPREHENSIVE_HEALTH_CARE":"CHĂM SÓC SỨC KHOẺ TOÀN DIỆN",
+    "specialized_examination": "Khám chuyên khoa",
+    "remote_examination":"Khám từ xa",
+    "general_examination": "Khám tổng quát",
+    "medical_test": "Xét nghiệm y học",
+    "mental_health":"Sức khỏe tinh thần",
+    "dental_examination":"Khám nha khoa",
+    "surgery_pack":"Gói phẫu thuật",
+    "medical_products":"Sản phẩm y tế",
+    "business_health":"Sức khỏe doanh nghiệp"
   },
   "common": {
     "add": "Thêm",
