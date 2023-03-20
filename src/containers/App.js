@@ -20,7 +20,7 @@ import System from "../routes/System";
 
 import { CustomToastCloseButton } from "../components/CustomToast";
 // import ConfirmModal from "../components/ConfirmModal";
-import HomePage from "./HomaPage/HomePage";
+import HomePage from "./HomePage/HomePage";
 import CustomScrollbars from "../components/CustomScrollbars";
 
 class App extends Component {
