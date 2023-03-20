@@ -8,6 +8,7 @@ import Slider from "react-slick";
 // import { appChangeLanguage } from "../../store/actions";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import specialtyImg from "../../../assets/specialty/120741-tim-mach.jpg";
 
 class Specialty extends Component {
   changeLangguage = (language) => {
@@ -16,37 +17,44 @@ class Specialty extends Component {
   };
   render() {
     let settings = {
-      dots: true,
+      dots: false,
       infinite: true,
       speed: 500,
-      slidesToShow: 1,
+      slidesToShow: 4,
       slidesToScroll: 1,
-      
     };
     // let language = this.props.language;
     return (
       <div className="section-specialty">
-        <div className="specialty-content">
-          <Slider {...settings}>
-            <div className="img-1">
-              <h3>1</h3>
-            </div>
-            <div className="img-2">
-              <h3>2</h3>
-            </div>
-            <div className="img-3">
-              <h3>3</h3>
-            </div>
-            <div className="img-4">
-              <h3>4</h3>
-            </div>
-            <div className="img-5">
-              <h3>5</h3>
-            </div>
-            <div className="img-6">
-              <h3>6</h3>
-            </div>
-          </Slider>
+        <div className="specialty-container">
+          <div className="specialty-header">
+            <span className="title-section">Chuyên khoa phổ biến</span>
+            <button className="btn-section">Xem thêm</button>
+          </div>
+          <div className="specialty-body">
+            <Slider {...settings}>
+              <div className="specialty-cus">
+                <div className="bg-image"></div>
+                <div>Tim mạch</div>
+              </div>
+              <div className="specialty-cus">
+                <div className="bg-image"></div>
+                <div>Tim mạch 2</div>
+              </div>
+              <div className="specialty-cus">
+                <div className="bg-image"></div>
+                <div>Tim mạch 3</div>
+              </div>
+              <div className="specialty-cus">
+                <div className="bg-image"></div>
+                <div>Tim mạch 4</div>
+              </div>
+              <div className="specialty-cus">
+                <div className="bg-image"></div>
+                <div>Tim mạch 5</div>
+              </div>
+            </Slider>
+          </div>
         </div>
       </div>
     );
