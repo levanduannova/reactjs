@@ -74,8 +74,6 @@
                     background: url(../../assets/doctor/download.jpeg);
                 }
             }
-
-
         }
     }
 
@@ -86,6 +84,17 @@
             .bg-image {
                 background: url(../../assets/handbook/hanbook1.jpeg);
             }
+        }
+    }
+    &.section-about {
+        border-top: 1px solid red;
+        border-bottom: 1px solid salmon;
+        margin: 0 100px;
+        height: 500px !important;
+        .section-about-header{
+            padding: 20px 0px;
+            font-size: 22px;
+            font-weight: 550;
         }
     }
 
@@ -140,5 +149,26 @@
                 }
             }
         }
+    }
+}
+.home-footer{
+    text-align: center;
+    padding-top: 8px;
+}
+.section-about-content{
+    width: 100%;
+    display: flex;
+    gap: 30px;
+    .content-left{
+        width: 60%;
+        iframe{
+            width: 100%;
+            border-radius: 10px;
+        }
+    }
+    .content-right{
+        width: 40%;
+        float: right;
+        text-align: justify;
     }
 }
