@@ -11,6 +11,7 @@ import {
 import ModalUser from "./ModalUser";
 import ModalEditUser from "./ModalEditUser";
 import { emitter } from "../../utils/emiiter";
+import { appChangeLanguage } from "../../store/actions";
 class UserManage extends Component {
   constructor(props) {
     super(props); // Ham tao
@@ -127,25 +128,25 @@ class UserManage extends Component {
           />
         )}
 
-        <div className="title text-center">Manage user</div>
+        <div className="title text-center"><FormattedMessage id="manager.manage-user" /></div>
         <div className="mx-1">
           <button
             className="bnt btn-primary px-3"
             onClick={() => this.handleAddNewuser()}
           >
-            <i className="fas fa-plus"></i> Add a new user
+            <i className="fas fa-plus"></i> <FormattedMessage id="manager.create-user"/>
           </button>
         </div>
-        <div>
+        <div className="bang">
           <table className="table mx-3 mt-4 table-hover">
             <thead className="thead-dark bg-success">
               <tr>
                 <th scope="col">Email</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Address</th>
-                <th scope="col">Phone</th>
-                <th scope="col">Action</th>
+                <th scope="col"><FormattedMessage id="manager.first_name"/></th>
+                <th scope="col"><FormattedMessage id="manager.last_name"/></th>
+                <th scope="col"><FormattedMessage id="manager.address"/></th>
+                <th scope="col"><FormattedMessage id="manager.phone"/></th>
+                <th scope="col"><FormattedMessage id="manager.action"/></th>
               </tr>
             </thead>
             <tbody>
@@ -186,11 +187,15 @@ class UserManage extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return {};
+  return {
+    language: state.app.language
+  };
 };
 
 const mapDispatchToProps = (dispatch) => {
-  return {};
+  return {
+    appChangeLanguage: (language) => dispatch(appChangeLanguage(language))
+  };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserManage);

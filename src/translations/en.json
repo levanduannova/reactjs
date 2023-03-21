@@ -21,6 +21,15 @@
     "medical_products":"Medical products",
     "business_health":"Business Health"
   },
+  "manager":{
+    "manage-user":"Manage user",
+    "create-user":"Create a new user",
+    "first_name":"First",
+    "last_name":"Last",
+    "address":"Address",
+    "phone":"Phone",
+    "action":"action"
+  },
   "common": {
     "add": "Add",
     "edit": "Edit",
@@ -53,7 +62,7 @@
       "system-administrator": {
         "header": "System Administrator",
         "user-manage": "User manage",
-        "product-manage": "Package manage",
+        "user-redux": "Manage User Redux",
         "register-package-group-or-account": "Register service package for group/account"
       },
       "system-parameter": {

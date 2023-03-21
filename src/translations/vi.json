@@ -21,6 +21,15 @@
     "medical_products":"Sản phẩm y tế",
     "business_health":"Sức khỏe doanh nghiệp"
   },
+  "manager":{
+    "manage-user":"Quán lí người dùng",
+    "create-user":"Tạo mới người dùng",
+    "first_name":"Họ",
+    "last_name":"Tên",
+    "address":"Địa chỉ",
+    "phone":"Số diện thoại",
+    "action":"Hành động"
+  },
   "common": {
     "add": "Thêm",
     "edit": "Sửa",
@@ -53,7 +62,7 @@
       "system-administrator": {
         "header": "Quản trị hệ thống",
         "user-manage": "Quản lý người sử dụng",
-        "product-manage": "Quản lý gói",
+        "user-redux": "Quản lí người dùng redux",
         "register-package-group-or-account": "Đăng ký gói dịch vụ cho nhóm/tài khoản"
       },
       "system-parameter": {
