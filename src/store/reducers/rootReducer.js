@@ -22,7 +22,13 @@ const persistCommonConfig = {
 const userPersistConfig = {
   ...persistCommonConfig,
   key: "user",
-  whitelist: ["isLoggedIn", "userInfo","language"],
+  whitelist: ["isLoggedIn", "userInfo"],
+};
+
+const appUserConfig = {
+  ...persistCommonConfig,
+  key: "app",
+  whitelist: ["language"],
 };
 
 // eslint-disable-next-line import/no-anonymous-default-export
@@ -31,5 +37,5 @@ export default (history) =>
     router: connectRouter(history),
     // admin: persistReducer(adminPersistConfig, adminReducer),
     user: persistReducer(userPersistConfig, userReducer),
-    app: appReducer,
+    app: persistReducer(appUserConfig, appReducer),
   });

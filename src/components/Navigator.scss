@@ -6,16 +6,17 @@
     padding: 0;
     &.list-unstyled,
     .list-unstyled {
-        list-style-type: none;
+        list-style-type: none;  
     }
     .menu-group {
         &:hover {
             cursor: pointer;
-            background-color: darken($colormain, 5);
+            background-color: darken(#24d4dd, 5);
         }
         .menu-group-name {
             line-height: 40px;
             padding: 0 15px;
+            color: #0957a1;
             border-right: 1px solid $border;
             &:first-child {
                 border-left: 1px solid $border;
@@ -23,7 +24,7 @@
         }
         .menu-list {
             display: none;
-            background-color: $bg-menu-color;
+            background-color: #c4dfe6;
             box-shadow: 2px 2px 4px 0 $box-shadow-color;
             -webkit-box-shadow: 2px 2px 4px 0 $box-shadow-color;
             color: $text-in-light;
@@ -35,9 +36,12 @@
                 height: 35px;
                 line-height: 35px;
                 text-transform: none;
+                .active{
+                    color: azure;
+                }
                 .menu-link {
                     text-decoration: none;
-                    color: $text-in-light;
+                    color: #a31515;
                 }
                 .sub-menu-list {
                     display: none;
