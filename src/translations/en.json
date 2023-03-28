@@ -27,9 +27,16 @@
     "create-user": "Create a new user",
     "first_name": "First",
     "last_name": "Last",
+    "password":"Password",
     "address": "Address",
     "phone": "Phone",
-    "action": "action"
+    "action": "action",
+    "gender":"Gender",
+    "role":"Role",
+    "position":"Position",
+    "save":"Save",
+    "image":"Image",
+    "upload":"Upload"
   },
   "common": {
     "add": "Add",

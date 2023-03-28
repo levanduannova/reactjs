@@ -25,11 +25,18 @@
   "manager": {
     "manage-user": "Quán lí người dùng",
     "create-user": "Tạo mới người dùng",
+    "password":"Mật khẩu",
     "first_name": "Họ",
     "last_name": "Tên",
     "address": "Địa chỉ",
     "phone": "Số diện thoại",
-    "action": "Hành động"
+    "action": "Hành động",
+    "gender":"Giới tính",
+    "role":"Vai trò",
+    "position":"Chức danh",
+    "save":"Lưu",
+    "image":"Hình ảnh",
+    "upload":"Tải lên"
   },
   "common": {
     "add": "Thêm",
